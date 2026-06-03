@@ -58,7 +58,6 @@ php -S 0.0.0.0:1234
 The server starts immediately. No Apache/Nginx needed.
 
 - Access from the same machine: `http://localhost:1234`
-- Access from the Android device/emulator: `http://10.0.2.2:1234`
 
 
 ---
@@ -67,7 +66,7 @@ The server starts immediately. No Apache/Nginx needed.
 
 When the MucikStore app launches it shows an **Enter IP** screen. Type your PC's local IP or android studio loopback ip:
 
-> Make sure your Android device and PC are on the **same network**, or use: `10.0.2.2` if the backend is in the same PC.
+> Make sure your Android device and PC are on the **same network**, or use: `localhost` if the backend is in the same PC.
 ---
 
 ## 5. Seed Accounts
@@ -200,4 +199,4 @@ mucikstore-backend/
 - Double-check credentials in `config/database.php`
 
 **Emulator can't connect**
-- Use IP `10.0.2.2` instead of `localhost` or `127.0.0.1`
+- Use IP `localhost` instead of `10.0.2.2` or `127.0.0.1`
