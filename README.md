@@ -64,9 +64,17 @@ The server starts immediately. No Apache/Nginx needed.
 
 ## 4. Connect the Android App
 
-When the MucikStore app launches it shows an **Enter IP** screen. Type your PC's local IP or android studio loopback ip:
+When the MucikStore app launches it shows an **Enter IP** screen.
 
-> Make sure your Android device and PC are on the **same network**, or use: `localhost` if the backend is in the same PC.
+> **Do NOT enter `localhost`.** Instead, enter the actual IP address your PC has been assigned on your Ethernet or Wi-Fi connection (e.g. `192.168.x.x`).
+
+To find your PC's IP:
+- **Windows:** run `ipconfig` and look for the **IPv4 Address** under your active Ethernet or Wi-Fi adapter.
+- **macOS / Linux:** run `ifconfig` or `ip addr` and look for the `inet` address on your active interface.
+
+> **Important:** Make sure the IP you enter is **NOT** `10.0.2.2`. That address is reserved for android emulator to connect to pc as gateway. 
+
+> Make sure your Android device and PC are on the **same network** (same Ethernet/Wi-Fi). For setup outside the same network, feel free to setup your own dns and routing.
 ---
 
 ## 5. Seed Accounts
@@ -191,7 +199,8 @@ mucikstore-backend/
 
 **"Network error, check your IP/server"** in the app
 - Confirm the PHP server is running (`php -S 0.0.0.0:1234`)
-- Confirm your device and PC are on the same Wi-Fi
+- Confirm your device and PC are on the same Wi-Fi/Ethernet
+- Make sure you entered your PC's real Ethernet/Wi-Fi IP — not `localhost` and not `10.0.2.2`
 - Check Windows Firewall: allow inbound TCP on port 1234
 
 **"Database connection failed"**
@@ -199,4 +208,4 @@ mucikstore-backend/
 - Double-check credentials in `config/database.php`
 
 **Emulator can't connect**
-- Use IP `localhost` instead of `10.0.2.2` or `127.0.0.1`
+- Use your PC's Ethernet/Wi-Fi IP. Avoid `10.0.2.2`, since it is reserved for Burp Suite loopback interception.
